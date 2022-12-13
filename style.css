@@ -6,4 +6,43 @@
 
 body, html {
     overflow-x: hidden;
+    font-family: "Poppins", sans-serif;
+}
+
+.webgl {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+nav {
+    color: white;
+    z-index: 2;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 4rem 8rem;
+}
+
+nav a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style:  none;
+    display: flex;
+    gap: 4rem;
+}
+
+.title {
+    color: white;
+    z-index: 2;
+    position: absolute;
+    font-size: 3rem;
+    left: 50%;
+    top: 75%;
+    transform: translate(-50%, -75%);
 }
