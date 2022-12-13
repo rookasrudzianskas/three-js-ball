@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import './style.css';
 
 // creating a scene
 const scene = new THREE.Scene();
@@ -12,13 +13,20 @@ const material = new THREE.MeshStandardMaterial({
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
 
+// Sizes
+const sizes = {
+    width: window.innerWidth,
+    height: window.innerHeight,
+}
+
 // create a light
 const light = new THREE.PointLight(0xffffff, 1, 100);
 light.position.set(0, 10, 10)
 scene.add(light);
 
 // Add a camera
-const camera = new THREE.PerspectiveCamera(45, 800 / 600);
+// Not see objects, which are fathers than 100
+const camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.1);
 // This is the distance from the camera to the object
 camera.position.z = 20;
 scene.add(camera);
@@ -27,5 +35,5 @@ scene.add(camera);
 const canvas = document.querySelector('.webgl');
 const renderer = new THREE.WebGLRenderer({ canvas });
 
-renderer.setSize(800, 600);
+renderer.setSize(sizes.width, sizes.height);
 renderer.render(scene, camera);
