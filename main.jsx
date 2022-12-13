@@ -12,8 +12,15 @@ const material = new THREE.MeshStandardMaterial({
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
 
+// create a light
+const light = new THREE.PointLight(0xffffff, 1, 100);
+light.position.set(0, 10, 10)
+scene.add(light);
+
 // Add a camera
-const camera = new THREE.PerspectiveCamera(45, 800, 600);
+const camera = new THREE.PerspectiveCamera(45, 800 / 600);
+// This is the distance from the camera to the object
+camera.position.z = 20;
 scene.add(camera);
 
 // Render the scene
