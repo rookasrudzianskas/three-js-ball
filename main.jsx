@@ -39,6 +39,10 @@ const renderer = new THREE.WebGLRenderer({ canvas });
 renderer.setSize(sizes.width, sizes.height);
 renderer.render(scene, camera);
 
+// Controls
+const controls = new OrbitControls(camera, canvas);
+controls.enableDamping = true;
+
 
 // Resize the scene
 window.addEventListener('resize', () => {
@@ -54,6 +58,7 @@ window.addEventListener('resize', () => {
 
 const loop = () => {
     // mesh.position.x += 0.1;
+    controls.update();
     renderer.render(scene, camera);
     window.requestAnimationFrame(loop);
 }
